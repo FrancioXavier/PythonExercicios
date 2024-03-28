@@ -1,12 +1,17 @@
 import mysql.connector
 from mysql.connector import Error
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 try:
     con = mysql.connector.connect(
             host='localhost',
             database='cadastro',
             user='root',
-            password='FdevPy-2708')
+            password= os.getenv('PASSWORD'))
 
     consultaSQL = "select * from besteira"
     cursor = con.cursor()

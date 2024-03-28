@@ -1,6 +1,11 @@
 import mysql.connector
 from mysql.connector import Error
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 while True:
     id = input('ID da pessoa: ')
     nome = input('Nome da pessoa: ')
@@ -12,7 +17,7 @@ while True:
                 host='localhost',
                 database='cadastro',
                 user='root',
-                password='FdevPy-2708')
+                password=os.getenv('PASSWORD'))
 
         inserirSQL = f"""INSERT INTO besteira (id, nome) 
                         VALUES ({dados}"""

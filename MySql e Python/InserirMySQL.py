@@ -1,12 +1,17 @@
 import mysql.connector
 from mysql.connector import Error
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 try:
     con = mysql.connector.connect(
             host='localhost',
             database='cadastro',
             user='root',
-            password='FdevPy-2708')                                                                                      #conexão com o banco de dados
+            password=os.getenv('PASSWORD'))                                                                                      #conexão com o banco de dados
 
     inserirSQL = """INSERT INTO besteira (id, nome) 
                     VALUES (default, 'Reginaldo'), (default, 'Sérgio'), (default, 'Ronaldo')"""                          #variável para digitar o comando

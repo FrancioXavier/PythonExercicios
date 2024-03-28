@@ -2,6 +2,10 @@ import mysql.connector
 from mysql.connector import Error
 from MySQLcomandos import ConectaMySQL
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def conecta():                                                                                                           #função para conectar com o banco de dados
     try:
@@ -10,7 +14,7 @@ def conecta():                                                                  
             host='localhost',
             database='cadastro',
             user='root',
-            password='FdevPy-2708')
+            password=os.getenv('PASSWORD'))
 
     except Error as erro:
         print(f'Erro ao conectar no sistema: {erro}')
